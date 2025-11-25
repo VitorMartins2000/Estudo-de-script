@@ -1,0 +1,14 @@
+#!/bin/bash
+# Autor: Vitor Aparecido Rampazzo Martins
+# Descrisão: este arquivo irá fazer um backup do diretório '/etc' e salvar em
+# outro diretório, um detalhe o tar irá compactar o arquivo e manter suas 
+# suas permissões, mas em um unico arquivo, sando assim mais fácil de move-lo.
+
+BACKUP_DIR="/home/vm-co-vitor/backup-etc"
+BACKUP_FILE="backup-etc-$(date '+%Y%m%d').tar.gz"
+
+mkdir -p "$BACKUP_DIR"
+cd "$BACKUP_DIR"
+
+tar -czf "$BACKUP_FILE" /etc
+echo "Backup criado: $BACKUP_DIR/$BACKUP_FILE"
